@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCompleteInMVCJson", "AutoCompleteInMVCJson\AutoCompleteInMVCJson.csproj", "{D525581E-4E95-4161-A40A-663AD66A23BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestInfoTrack", "UnitTestInfoTrack\UnitTestInfoTrack.csproj", "{81B68770-3403-41DE-A991-D4B065DB224C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D525581E-4E95-4161-A40A-663AD66A23BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D525581E-4E95-4161-A40A-663AD66A23BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D525581E-4E95-4161-A40A-663AD66A23BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D525581E-4E95-4161-A40A-663AD66A23BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B68770-3403-41DE-A991-D4B065DB224C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B68770-3403-41DE-A991-D4B065DB224C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B68770-3403-41DE-A991-D4B065DB224C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B68770-3403-41DE-A991-D4B065DB224C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E9A640C-9934-472B-BFED-2FE00F6820E4}
+	EndGlobalSection
+EndGlobal

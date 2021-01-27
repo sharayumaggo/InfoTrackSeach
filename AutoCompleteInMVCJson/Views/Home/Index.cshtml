@@ -1,0 +1,144 @@
+﻿@model AutoCompleteInMVCJson.Models.KeywordModel
+
+@{
+    ViewBag.Title = "InfoTrack Search Engine";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Keyword").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Home/Index",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Keyword, value: item.Keyword };
+                        }))
+
+                    }
+                })
+            },
+            messages: {
+                noResults: "", results: ""
+            }
+        });
+
+        $("#btnGoogle").click(function () {
+            var key = $("#Keyword").val();
+            var url = $("#Url").val();
+            if (key != "") {
+
+                $.ajax({
+                    url: "/Home/SearchResult",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Keyword: key, SiteUrl: url, SearchEngine: "Google" },
+                    success: function (data) {
+                        $("#resultView")
+                            .html('<div class="table"><h3>Search Results<h3></div><h3>As per the search keyword and URL, position of website on Google Search Result is: ' + data + '</h3>');
+
+                    }
+                })
+
+            }
+            else {
+                alert("Please Enter Keyword");
+            }
+        });
+
+        $("#btnBing").click(function () {
+            var key = $("#Keyword").val();
+            var url = $("#Url").val();
+            if (key != "") {
+
+                $.ajax({
+                    url: "/Home/SearchResult",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Keyword: key, SiteUrl: url, SearchEngine: "Bing" },
+                    success: function (data) {
+                        $("#resultView")
+                            .html('<div class="table"><h3>Search Results<h3></div><h3>As per the search keyword and URL, position of website on Bing Search Result is: ' + data + '</h3>');
+
+                    }
+                })
+
+            }
+            else {
+                alert("Please Enter Keyword");
+            }
+        });
+    })
+</script>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="container">
+        <h2>InfoTrack Search</h2>
+        <br />
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <span>Enter URL: </span><input id="Url" name="Url" type="text" value="https://www.infotrack.com.au/" class="form-control input-lg" />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <span>Enter Keyword: </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+
+                        @Html.EditorFor(model => model.Keyword, new { htmlAttributes = new { @class = "form-control input-lg", @style = "width:500px", @id = "Keyword", @Value = "InfoTrack Title Search" } })
+                        <span class="input-group-btn">
+                            <button id="btnGoogle" class="btn btn-info btn-lg" type="button">
+                                Google
+                            </button>
+                            <button id="btnBing" class="btn btn-info btn-lg" type="button">
+                                Bing
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="table" id="resultView" style="border:1px solid; margin:5px">
+
+
+</div>
+
+
