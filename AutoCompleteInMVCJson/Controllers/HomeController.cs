@@ -20,6 +20,7 @@ namespace AutoCompleteInMVCJson.Controllers
         {
             try
             {
+                // Logging framework using adapter pattern 
                 log.Info("entering application, fetch list!");
 
                 //Note : you can bind same list from database
@@ -53,11 +54,12 @@ namespace AutoCompleteInMVCJson.Controllers
         {
             try
             {
+                // Logging framework using adapter pattern 
                 log.Info("entering application, Search Result!");
                 // Client Side
                 // Here simple factory patern is implemented. 
-                // based on searchEngine respective object will be created at single place and 
-                // respective concrete class method will be called
+                // based on searchEngine input respective object will be created at single place and 
+                // related concrete class method will be called
 
                 ISearchResult searchResult = null;
                 searchResult = SearchEngineFactory.GetSearchResult(SearchEngine);

@@ -40,7 +40,7 @@
                     data: { Keyword: key, SiteUrl: url, SearchEngine: "Google" },
                     success: function (data) {
                         $("#resultView")
-                            .html('<div class="table"><h3>Search Results<h3></div><h3>As per the search keyword and URL, position of website on Google Search Result is: ' + data + '</h3>');
+                            .html('<div style="margin:5px"><div class="table"><h3><u>Search Results :</u><h3></div><h3>As per the search keyword and URL, position of website on Google Search Result is: ' + data + '</h3></div>');
 
                     }
                 })
@@ -63,7 +63,7 @@
                     data: { Keyword: key, SiteUrl: url, SearchEngine: "Bing" },
                     success: function (data) {
                         $("#resultView")
-                            .html('<div class="table"><h3>Search Results<h3></div><h3>As per the search keyword and URL, position of website on Bing Search Result is: ' + data + '</h3>');
+                            .html('<div style="margin:5px"><div class="table"><h3><u>Search Results :</u><h3></div><h3>As per the search keyword and URL, position of website on Bing Search Result is: ' + data + '</h3></div>');
 
                     }
                 })
@@ -136,7 +136,7 @@
 <br />
 <br />
 
-<div class="table" id="resultView" style="border:1px solid; margin:5px">
+<div class="table" id="resultView" style="border:1px solid">
 
 
 </div>
